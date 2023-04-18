@@ -4,10 +4,12 @@ import HomePage from "./pages/HomePage"
 import SignInPage from "./pages/SignInPage"
 import SignUpPage from "./pages/SignUpPage"
 import TransactionsPage from "./pages/TransactionPage"
+import { InfoProvider } from "./context/InfoContext"
 
 export default function App() {
   return (
     <PagesContainer>
+      <InfoProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SignInPage />} />
@@ -16,6 +18,7 @@ export default function App() {
           <Route path="/nova-transacao/:tipo" element={<TransactionsPage />} />
         </Routes>
       </BrowserRouter>
+      </InfoProvider>
     </PagesContainer>
   )
 }

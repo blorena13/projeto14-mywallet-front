@@ -5,11 +5,13 @@ export default function TransactionsPage() {
     <TransactionsContainer>
       <h1>Nova TRANSAÇÃO</h1>
       <form>
-        <input placeholder="Valor" type="text"/>
-        <input placeholder="Descrição" type="text" />
-        <button>Salvar TRANSAÇÃO</button>
+        <input data-test="registry-amount-input" placeholder="Valor" type="text"/>
+        <input data-test="registry-name-input" placeholder="Descrição" type="text" />
+        <button data-test="registry-save" >Salvar TRANSAÇÃO</button>
       </form>
     </TransactionsContainer>
+
+    //se for entrada fica de um jeito se for saída fica de outro
   )
 }
 
