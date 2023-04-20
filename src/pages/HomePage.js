@@ -1,12 +1,46 @@
-import styled from "styled-components"
-import { BiExit } from "react-icons/bi"
-import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
+import styled from "styled-components";
+import { BiExit } from "react-icons/bi";
+import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
+import { useParams } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { InfoContext } from "../context/InfoContext";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
+
+  const { token, nome } = useContext(InfoContext);
+  const [registros, setRegistros] = useState([]);
+  const navigate = useNavigate();
+
+
+  // const { tipo } = useParams();
+
+  useEffect(() => {
+    const url = "http://localhost:5000/nova-transacao";
+    const config = {
+      headers:
+        { Authorization: `Bearer ${token}` }
+    }
+
+    const promise = axios.get(url, config);
+    promise.then((res) => {
+      console.log(res.data)
+      setRegistros(res.data);
+
+
+    })
+    promise.catch(err => console.log(err.response.data.mesagem));
+
+  }, []);
+
+
+
   return (
     <HomeContainer>
       <Header>
-        <h1>Olá, Fulano</h1>
+        <h1>Olá, {nome}</h1>
         <BiExit />
       </Header>
 
@@ -37,11 +71,11 @@ export default function HomePage() {
 
 
       <ButtonsContainer>
-        <button>
+        <button onClick={() => navigate("/nova-transacao/:tipo")}>
           <AiOutlinePlusCircle />
           <p>Nova <br /> entrada</p>
         </button>
-        <button>
+        <button onClick={() => navigate("/nova-transacao/:tipo")}>
           <AiOutlineMinusCircle />
           <p>Nova <br />saída</p>
         </button>

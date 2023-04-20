@@ -9,31 +9,54 @@ import { useContext } from "react";
 export default function SignInPage() {
 
   const navigate = useNavigate();
-  const { email, setEmail, password, setPassword} = useContext(InfoContext);
+  const { email, setEmail, senha, setSenha, token, setToken } = useContext(InfoContext);
 
-  function login(e){
+  function login(e) {
     e.preventDefault();
 
     const urlPost = "http://localhost:5000/login";
-    const body = {email: email, senha: password};
+    const body = { email: email, senha: senha };
 
     const promise = axios.post(urlPost, body)
-    promise.then( res => {
-
+    promise.then(res => {
+      setToken(res.data);
+      // localStorage.setItem("token", token );
       navigate("/home");
+      
     });
-    promise.catch(err =>{
+    promise.catch(err => {
       console.log(err.response.data.mensagem);
     });
-
   }
+
   return (
     <SingInContainer>
       <form onSubmit={login}>
         <MyWalletLogo />
-        <input data-test="email" placeholder="E-mail" type="email" />
-        <input data-teste="password" placeholder="Senha" type="password" autocomplete="new-password" />
-        <button data-test= "sign-in-submit" >Entrar</button>
+        <input
+          data-test="email"
+          placeholder="E-mail"
+          type="email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+
+        <input
+          data-teste="password"
+          placeholder="Senha"
+          type="password"
+          autocomplete="new-password"
+          value={senha}
+          onChange={e => setSenha(e.target.value)}
+        />
+
+        <button
+          data-test="sign-in-submit"
+          onClick={(e) => {
+            e.persist();
+            login(e);
+          }}
+        >Entrar</button>
       </form>
 
       <Link to={`/cadastro`}>

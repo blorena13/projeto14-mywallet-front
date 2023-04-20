@@ -1,5 +1,7 @@
-import { createContext } from "react";
+import { createContext, useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export const InfoContext = createContext();
 
@@ -10,6 +12,19 @@ export const InfoProvider = ({ children }) => {
     const [senha, setSenha] = useState("");
     const [token, setToken] = useState("");
     const [confSenha, setConfSenha] = useState("");
+    
+
+    const lsUser = JSON.parse(localStorage.getItem("user"));
+    const [user, setUser] = useState(lsUser !== null ? lsUser : {});
+    
+
+    // useEffect(() => {
+    //     if(lsUser === null){
+    //         navigate("/")
+    //     } else {
+    //         navigate("/home")
+    //     }
+    // }, []);
 
 
     return (
@@ -20,6 +35,7 @@ export const InfoProvider = ({ children }) => {
             senha, setSenha, 
             token, setToken,
             confSenha, setConfSenha,
+            user, setUser
             }}>
 
             {children}

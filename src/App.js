@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Router } from "react-router-dom"
 import styled from "styled-components"
 import HomePage from "./pages/HomePage"
 import SignInPage from "./pages/SignInPage"
@@ -9,6 +9,7 @@ import { InfoProvider } from "./context/InfoContext"
 export default function App() {
   return (
     <PagesContainer>
+      
       <InfoProvider>
       <BrowserRouter>
         <Routes>
@@ -19,6 +20,7 @@ export default function App() {
         </Routes>
       </BrowserRouter>
       </InfoProvider>
+     
     </PagesContainer>
   )
 }
