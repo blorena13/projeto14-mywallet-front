@@ -14,7 +14,7 @@ export default function SignInPage() {
   function login(e) {
     e.preventDefault();
 
-    const urlPost = "http://localhost:5000/login";
+    const urlPost = `${process.env.REACT_APP_API_URL}/login`;
     const body = { email: email, senha: senha };
 
     const promise = axios.post(urlPost, body)

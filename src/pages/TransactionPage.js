@@ -16,7 +16,7 @@ export default function TransactionsPage() {
   function transacao(e) {
     e.preventDefault();
 
-    const urlPost = `http://localhost:5000/nova-transacao/${tipo}`;
+    const urlPost = `${process.env.REACT_APP_API_URL}/nova-transacao/${tipo}`;
     const body = { valor, descricao, tipo };
     const config = {
       headers: {

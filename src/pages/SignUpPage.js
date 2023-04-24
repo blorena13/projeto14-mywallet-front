@@ -21,7 +21,7 @@ export default function SignUpPage() {
       return;
     }
 
-    const urlPost = "http://localhost:5000/cadastro";
+    const urlPost = `${process.env.REACT_APP_API_URL}/cadastro`;
     const body = { nome: nome, email: email, senha: senha };
 
     const promise = axios.post(urlPost, body);

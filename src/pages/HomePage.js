@@ -22,7 +22,7 @@ export default function HomePage() {
   // const { tipo } = useParams();
 
   useEffect(() => {
-    const url = "http://localhost:5000/nova-transacao";
+    const url = `${process.env.REACT_APP_API_URL}/nova-transacao`;
     const config = {
       headers:
         { Authorization: `Bearer ${token}` }
