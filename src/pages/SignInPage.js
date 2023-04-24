@@ -20,7 +20,8 @@ export default function SignInPage() {
     const promise = axios.post(urlPost, body)
     promise.then(res => {
       setToken(res.data);
-      // localStorage.setItem("token", token );
+      console.log(nome);
+     
       navigate("/home");
       
     });
