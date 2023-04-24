@@ -13,6 +13,10 @@ export default function HomePage() {
   const { token, nome } = useContext(InfoContext);
   const [registros, setRegistros] = useState([]);
   const navigate = useNavigate();
+  const [entrada, setEntrada] = useState(0);
+  const [saida, setSaida] = useState(0);
+  const [saldo, setSaldo] = useState(0);
+
 
 
   // const { tipo } = useParams();
@@ -27,13 +31,25 @@ export default function HomePage() {
     const promise = axios.get(url, config);
     promise.then((res) => {
       console.log(res.data)
-      setRegistros(res.data);
+
+      const transacoesColor = res.data.map(transacao => {
+        const color = transacao.tipo === "entrada" ? "positivo" : "negativo";
+        return { ...transacao, color };
+      })
+      setRegistros(transacoesColor);
+
+      const entradas = transacoesColor.filter(t => t.tipo === 'entrada')?.reduce((acc, t) => acc + parseFloat(t.valor), 0);
+      const saidas = transacoesColor.filter(t => t.tipo === 'saida')?.reduce((acc, t) => acc + parseFloat(t.valor), 0);
+      const novoSaldo = entradas - saidas;
+
+      setSaldo(novoSaldo.toFixed(2));
 
 
     })
     promise.catch(err => console.log(err.response.data.mesagem));
 
   }, []);
+
 
 
 
@@ -46,36 +62,33 @@ export default function HomePage() {
 
       <TransactionsContainer>
         <ul>
-          <ListItemContainer>
-            <div>
-              <span>30/11</span>
-              <strong>Almoço mãe</strong>
-            </div>
-            <Value color={"negativo"}>120,00</Value>
-          </ListItemContainer>
 
-          <ListItemContainer>
-            <div>
-              <span>15/11</span>
-              <strong>Salário</strong>
-            </div>
-            <Value color={"positivo"}>3000,00</Value>
-          </ListItemContainer>
+          {registros.map(registro => (
+
+            <ListItemContainer key={registro.id}>
+              <div>
+                <span>{registro.data}</span>
+                <strong>{registro.descricao}</strong>
+              </div>
+              <Value color={registro.color}>{registro.valor}</Value>
+            </ListItemContainer>
+          ))}
+
         </ul>
 
         <article>
           <strong>Saldo</strong>
-          <Value color={"positivo"}>2880,00</Value>
+          <Value color={saldo > 0 ? "positivo" : "negativo"}>{saldo}</Value>
         </article>
       </TransactionsContainer>
 
 
       <ButtonsContainer>
-        <button onClick={() => navigate("/nova-transacao/:tipo")}>
+        <button onClick={() => navigate("/nova-transacao/entrada")}>
           <AiOutlinePlusCircle />
           <p>Nova <br /> entrada</p>
         </button>
-        <button onClick={() => navigate("/nova-transacao/:tipo")}>
+        <button onClick={() => navigate("/nova-transacao/saida")}>
           <AiOutlineMinusCircle />
           <p>Nova <br />saída</p>
         </button>
@@ -100,6 +113,7 @@ const Header = styled.header`
   color: white;
 `
 const TransactionsContainer = styled.article`
+
   flex-grow: 1;
   background-color: #fff;
   color: #000;
@@ -108,6 +122,9 @@ const TransactionsContainer = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: auto;
+  
+  
   article {
     display: flex;
     justify-content: space-between;   
@@ -115,6 +132,10 @@ const TransactionsContainer = styled.article`
       font-weight: 700;
       text-transform: uppercase;
     }
+  }
+  ul {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
   }
 `
 const ButtonsContainer = styled.section`

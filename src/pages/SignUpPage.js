@@ -26,8 +26,6 @@ export default function SignUpPage() {
 
     const promise = axios.post(urlPost, body);
     promise.then(res => {
-      setNome(res.data);
-
       navigate("/");
     });
     promise.catch(err => {
