@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { BiExit } from "react-icons/bi";
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
-import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { InfoContext } from "../context/InfoContext";
 import { useState } from "react";
@@ -10,14 +9,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
 
-  const { token, nome } = useContext(InfoContext);
+  const { token, nome, setToken } = useContext(InfoContext);
   const [registros, setRegistros] = useState([]);
   const navigate = useNavigate();
-  const [entrada, setEntrada] = useState(0);
-  const [saida, setSaida] = useState(0);
   const [saldo, setSaldo] = useState(0);
-
-
 
   // const { tipo } = useParams();
 
@@ -30,7 +25,6 @@ export default function HomePage() {
 
     const promise = axios.get(url, config);
     promise.then((res) => {
-      console.log(res.data)
 
       const transacoesColor = res.data.map(transacao => {
         const color = transacao.tipo === "entrada" ? "positivo" : "negativo";
@@ -57,7 +51,10 @@ export default function HomePage() {
     <HomeContainer>
       <Header>
         <h1>Olá, {nome}</h1>
-        <BiExit />
+        <BiExit onClick={()=> {
+          setToken("");
+          navigate("/");
+        }} />
       </Header>
 
       <TransactionsContainer>

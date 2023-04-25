@@ -9,7 +9,7 @@ import { useContext } from "react";
 export default function SignInPage() {
 
   const navigate = useNavigate();
-  const { email, setEmail, senha, setSenha, token, setToken } = useContext(InfoContext);
+  const { email, setEmail, senha, setNome, setSenha, setToken, user, setUser } = useContext(InfoContext);
 
   function login(e) {
     e.preventDefault();
@@ -19,9 +19,13 @@ export default function SignInPage() {
 
     const promise = axios.post(urlPost, body)
     promise.then(res => {
-      setToken(res.data);
+      const { token, nome } = res.data;
+      setNome(nome);
+      setToken(token);
+      localStorage.setItem("user", JSON.stringify({token, nome}))
+
       navigate("/home");
-      
+
     });
     promise.catch(err => {
       console.log(err.response.data.mensagem);

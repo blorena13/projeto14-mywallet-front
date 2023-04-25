@@ -10,16 +10,18 @@ export default function App() {
   return (
     <PagesContainer>
       
-      <InfoProvider>
+      
       <BrowserRouter>
+      <InfoProvider>
         <Routes>
           <Route path="/" element={<SignInPage />} />
           <Route path="/cadastro" element={<SignUpPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/nova-transacao/:tipo" element={<TransactionsPage />} />
         </Routes>
+        </InfoProvider>
       </BrowserRouter>
-      </InfoProvider>
+     
      
     </PagesContainer>
   )

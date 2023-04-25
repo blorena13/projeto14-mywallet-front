@@ -65,7 +65,7 @@ export default function TransactionsPage() {
       </form>
     </TransactionsContainer>
 
-    //se for entrada fica de um jeito se for saída fica de outro
+    
   )
 }
 
