@@ -3,6 +3,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { InfoContext } from "../context/InfoContext";
+import { useEffect } from "react";
 
 export default function TransactionsPage() {
 
@@ -10,8 +11,9 @@ export default function TransactionsPage() {
   const [valor, setValor] = useState("");
   const [descricao, setDescricao] = useState("");
   const navigate = useNavigate();
-  const { token } = useContext(InfoContext);
+  const { token, setToken} = useContext(InfoContext);
   const tipoAcento = tipo?.replace(/saida/g, "saída");
+
 
   function transacao(e) {
     e.preventDefault();

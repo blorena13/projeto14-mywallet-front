@@ -12,6 +12,7 @@ export const InfoProvider = ({ children }) => {
     const [senha, setSenha] = useState("");
     const [token, setToken] = useState("");
     const [confSenha, setConfSenha] = useState("");
+    const [usuarioLogado, setUsuarioLogado]= useState("");
     const navigate = useNavigate();
     
 
@@ -36,7 +37,8 @@ export const InfoProvider = ({ children }) => {
             senha, setSenha, 
             token, setToken,
             confSenha, setConfSenha,
-            user, setUser
+            user, setUser,
+            usuarioLogado, setUsuarioLogado
             }}>
 
             {children}

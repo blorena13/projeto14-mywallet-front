@@ -9,15 +9,14 @@ import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
 
-  const { token, nome, setToken } = useContext(InfoContext);
+  const { token, nome, setToken, usuarioLogado } = useContext(InfoContext);
   const [registros, setRegistros] = useState([]);
   const navigate = useNavigate();
   const [saldo, setSaldo] = useState(0);
 
-  // const { tipo } = useParams();
 
   useEffect(() => {
-    const url = `${process.env.REACT_APP_API_URL}/nova-transacao`;
+    const url = `${process.env.REACT_APP_API_URL}/nova-transacao?idUsuario=${usuarioLogado}`;
     const config = {
       headers:
         { Authorization: `Bearer ${token}` }
