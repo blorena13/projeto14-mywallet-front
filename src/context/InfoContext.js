@@ -23,9 +23,7 @@ export const InfoProvider = ({ children }) => {
     useEffect(() => {
         if(lsUser === null){
             navigate("/")
-        } else {
-            navigate("/home")
-        }
+        } 
     }, []);
 
 
