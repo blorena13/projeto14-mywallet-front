@@ -1,72 +1,40 @@
+# My Wallet
 
+Uma forma simples de registrar seus lucros e gastos diários. 
 <img src="/assets/my-wallet.gif"/>
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Sobre
 
-In the project directory, you can run:
+Essa aplicação web tem como objetivo organizar seus gastos e entradas, utilizando rotas como:
 
-### `npm start`
+- Cadastro.
+- Login.
+- Listagem das transações realizadas.
+- Adicionar gastos.
+- Adicionar valores recebidos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tecnologias
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![Static Badge](https://img.shields.io/badge/React--%2361DAFB?style=for-the-badge&logo=React&logoColor=white&label=React&labelColor=%2361DAFB)
 
-### `npm test`
+![Static Badge](https://img.shields.io/badge/Axios%20-%20%235A29E4?style=for-the-badge&logo=Axios&logoColor=white&color=%235A29E4)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Static Badge](https://img.shields.io/badge/styled-%20components%20-%20%23DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white&labelColor=%23DB7093&color=%23DB7093)
 
-### `npm run build`
+![Static Badge](https://img.shields.io/badge/Javascript%20-%20%23F7DF1E?style=for-the-badge&logo=React&logoColor=%23FFFFFF)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como rodar o projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clonar este repositório.
+2. Clonar o repositório do back-end: https://github.com/blorena13/projeto14-mywallet-back.
+3. Siga as instruções para rodar o back-end no repositório.
+4. Instale as dependências.
+```bash
+npm i
+```
+5. Rode o Front-end com o comando:
+```bash
+npm start
+```
+6. Por fim, acesse http://localhost:5000 no seu navegador.
