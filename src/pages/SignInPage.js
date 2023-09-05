@@ -23,6 +23,7 @@ export default function SignInPage() {
       setNome(nome);
       setToken(token);
       setUsuarioLogado(idUsuario);
+      console.log("userId" + idUsuario);
       localStorage.setItem("user", JSON.stringify({token, nome}))
 
       navigate("/home");

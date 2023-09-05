@@ -16,7 +16,7 @@ export default function HomePage() {
 
 
   useEffect(() => {
-    const url = `${process.env.REACT_APP_API_URL}/nova-transacao?idUsuario=${usuarioLogado}`;
+    const url = `${process.env.REACT_APP_API_URL}/nova-transacao`;
     const config = {
       headers:
         { Authorization: `Bearer ${token}` }
