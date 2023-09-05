@@ -1,8 +1,11 @@
 # My Wallet
 
 Uma forma simples de registrar seus lucros e gastos diários. 
+
 <img src="/assets/my-wallet.gif"/>
 
+- Front-end disponível em deploy: https://projeto14-mywallet-front-r0kk76pef-blorena13.vercel.app
+- Back-end disponível em deploy: https://projeto14-mywallet-back-azw5.onrender.com
 
 ## Sobre
 
