@@ -19,13 +19,7 @@ Essa aplicação web tem como objetivo organizar seus gastos e entradas, utiliza
 
 ## Tecnologias
 
-![Static Badge](https://img.shields.io/badge/React--%2361DAFB?style=for-the-badge&logo=React&logoColor=white&label=React&labelColor=%2361DAFB)
-
-![Static Badge](https://img.shields.io/badge/Axios%20-%20%235A29E4?style=for-the-badge&logo=Axios&logoColor=white&color=%235A29E4)
-
-![Static Badge](https://img.shields.io/badge/styled-%20components%20-%20%23DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white&labelColor=%23DB7093&color=%23DB7093)
-
-![Static Badge](https://img.shields.io/badge/Javascript%20-%20%23F7DF1E?style=for-the-badge&logo=React&logoColor=%23FFFFFF)
+![Static Badge](https://img.shields.io/badge/React--%2361DAFB?style=for-the-badge&logo=React&logoColor=white&label=React&labelColor=%2361DAFB)      ![Static Badge](https://img.shields.io/badge/Axios%20-%20%235A29E4?style=for-the-badge&logo=Axios&logoColor=white&color=%235A29E4)      ![Static Badge](https://img.shields.io/badge/styled-%20components%20-%20%23DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white&labelColor=%23DB7093&color=%23DB7093)      ![Static Badge](https://img.shields.io/badge/Javascript%20-%20%23F7DF1E?style=for-the-badge&logo=React&logoColor=%23FFFFFF)
 
 ## Como rodar o projeto
 
